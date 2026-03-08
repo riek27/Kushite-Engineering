@@ -1,63 +1,164 @@
-<!-- services.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services | Vision To Action</title>
+  <title>Our Services | Vision To Action Engineering</title>
   <link rel="stylesheet" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-  <header>...same as about...</header>
+  <header>
+    <div class="container nav-container">
+      <a href="index.html" class="logo">Vision To Action <span>Engineering</span></a>
+      <div class="menu-toggle"><i class="fas fa-bars"></i></div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html" class="active">Services</a></li>
+          <li><a href="gallery.html">Gallery</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-  <section class="page-hero" style="background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');">
+  <section class="page-hero" style="background-image: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');">
     <div class="container">
       <h1>Our Engineering Services</h1>
     </div>
   </section>
 
   <main>
+    <!-- All Services Grid -->
     <section class="section">
       <div class="container">
         <h2 class="section-title">What We Offer</h2>
         <div class="services-grid-full">
-          <!-- 7 service cards -->
-          <div class="service-card"><i class="fas fa-cogs"></i><h3>Mechanical Engineering</h3><p>HVAC, plumbing, industrial systems.</p></div>
-          <div class="service-card"><i class="fas fa-bolt"></i><h3>Electrical Engineering</h3><p>Power distribution, smart home, backup.</p></div>
-          <div class="service-card"><i class="fas fa-building"></i><h3>Structural Engineering</h3><p>Steel, concrete, retrofitting.</p></div>
-          <div class="service-card"><i class="fas fa-road"></i><h3>Civil Engineering</h3><p>Site development, roads, drainage.</p></div>
-          <div class="service-card"><i class="fas fa-truck"></i><h3>Supplies & Clearance</h3><p>Border clearance, material procurement.</p></div>
-          <div class="service-card"><i class="fas fa-cube"></i><h3>Concrete Blocks</h3><p>Solid & hollow blocks, high quality.</p></div>
-          <div class="service-card"><i class="fas fa-concierge-bell"></i><h3>Facilities Management</h3><p>Maintenance, security, operations.</p></div>
-        </div>
-        <!-- Premium construction extra -->
-        <div class="premium-showcase">
-          <h3>Premium Construction</h3>
-          <p>We employ skilled craftsmen and use only the highest quality materials to ensure your home is built to the highest standards of excellence and durability. Our construction process is meticulously managed to deliver exceptional quality while adhering to timelines and budgets.</p>
-          <ul class="premium-list">
-            <li><i class="fas fa-check-circle"></i> Foundation and structural work</li>
-            <li><i class="fas fa-check-circle"></i> Custom millwork and cabinetry</li>
-            <li><i class="fas fa-check-circle"></i> High-end finishes and detailing</li>
-            <li><i class="fas fa-check-circle"></i> Smart home integration</li>
-            <li><i class="fas fa-check-circle"></i> Quality assurance & project management</li>
-          </ul>
-          <a href="contact.html" class="btn">Discuss Construction</a>
+          <div class="service-card">
+            <i class="fas fa-cogs service-icon"></i>
+            <h3>Mechanical Engineering</h3>
+            <p>HVAC, plumbing, and industrial systems design & installation.</p>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-bolt service-icon"></i>
+            <h3>Electrical Engineering</h3>
+            <p>Power distribution, smart wiring, and backup solutions.</p>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-building service-icon"></i>
+            <h3>Structural Engineering</h3>
+            <p>Steel, concrete, and seismic retrofitting for safety.</p>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-road service-icon"></i>
+            <h3>Civil Engineering</h3>
+            <p>Site development, roads, drainage, and earthworks.</p>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-truck service-icon"></i>
+            <h3>Supplies & Clearance</h3>
+            <p>Border clearance, procurement, and material delivery.</p>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-cube service-icon"></i>
+            <h3>Concrete Blocks</h3>
+            <p>Premium solid & hollow blocks – made on-site with strict quality control.</p>
+          </div>
+          <div class="service-card">
+            <i class="fas fa-concierge-bell service-icon"></i>
+            <h3>Facilities Management</h3>
+            <p>Ongoing maintenance, cleaning, security, and building operations.</p>
+          </div>
         </div>
       </div>
     </section>
 
+    <!-- Premium Construction Showcase with Image -->
+    <section class="section bg-beige">
+      <div class="container">
+        <div class="premium-showcase">
+          <div class="premium-grid">
+            <div class="premium-img">
+              <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Luxury construction">
+            </div>
+            <div class="premium-content">
+              <h2>Premium Construction</h2>
+              <p class="premium-description">We employ skilled craftsmen and use only the highest quality materials to ensure your home is built to the highest standards of excellence and durability. Our construction process is meticulously managed to deliver exceptional quality while adhering to timelines and budgets.</p>
+              <ul class="premium-list">
+                <li><i class="fas fa-check-circle"></i> Foundation and structural work</li>
+                <li><i class="fas fa-check-circle"></i> Custom millwork and cabinetry</li>
+                <li><i class="fas fa-check-circle"></i> High-end finishes and detailing</li>
+                <li><i class="fas fa-check-circle"></i> Smart home integration</li>
+                <li><i class="fas fa-check-circle"></i> Quality assurance & project management</li>
+              </ul>
+              <a href="contact.html" class="btn">Discuss Your Project</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Call to Action -->
     <section class="cta-section">
       <div class="container">
-        <h2>Need a tailored solution?</h2>
-        <p>Our engineers are ready to help.</p>
-        <a href="contact.html" class="btn btn-light">Get a Quote</a>
+        <h2>Ready to build with excellence?</h2>
+        <p>Contact our team for a free consultation.</p>
+        <a href="contact.html" class="btn btn-light">Get In Touch</a>
       </div>
     </section>
   </main>
 
-  <footer>...</footer>
+  <footer>
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col">
+          <h4>Vision To Action Engineering</h4>
+          <p>Creating exceptional luxury homes and infrastructure with unparalleled craftsmanship for over 15 years in South Sudan.</p>
+          <div class="social">
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-whatsapp"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="services.html">Services</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <ul>
+            <li><a href="services.html">Mechanical</a></li>
+            <li><a href="services.html">Electrical</a></li>
+            <li><a href="services.html">Structural</a></li>
+            <li><a href="services.html">Civil</a></li>
+            <li><a href="services.html">Concrete Blocks</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact Info</h4>
+          <ul class="contact-info">
+            <li><i class="fas fa-map-marker-alt"></i> Munuki, Juba, South Sudan</li>
+            <li><i class="fas fa-phone"></i> 0928 583 801</li>
+            <li><i class="fab fa-whatsapp"></i> +211 924 287 650</li>
+            <li><i class="fas fa-envelope"></i> info@visiontoactionco.com</li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Vision To Action Engineering Company Ltd. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
