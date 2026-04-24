@@ -1,186 +1,1326 @@
-<!-- index.html -->
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Vision To Action | Home</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700;900&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Sanitation Services LTD | Professional Sanitation • Bio-Digester Solutions • Construction Services</title>
+    <meta name="description" content="Advanced Sanitation Services LTD - Trusted sanitation and infrastructure company in Juba, South Sudan. Bio-digester solutions, waste management, and construction services.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
+                    colors: {
+                        primary: {
+                            50: '#f0f9ff', 100: '#e0f2fe', 200: '#bae6fd', 300: '#7dd3fc',
+                            400: '#38bdf8', 500: '#0ea5e9', 600: '#0284c7', 700: '#0369a1',
+                            800: '#075985', 900: '#0c4a6e', 950: '#082f49',
+                        },
+                        accent: {
+                            50: '#fefce8', 100: '#fef9c3', 200: '#fef08a', 300: '#fde047',
+                            400: '#facc15', 500: '#eab308', 600: '#ca8a04', 700: '#a16207',
+                            800: '#854d0e', 900: '#713f12',
+                        },
+                        dark: {
+                            50: '#f8fafc', 100: '#f1f5f9', 200: '#e2e8f0', 300: '#cbd5e1',
+                            400: '#94a3b8', 500: '#64748b', 600: '#475569', 700: '#334155',
+                            800: '#1e293b', 900: '#0f172a', 950: '#020617',
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+        .font-playfair { font-family: 'Playfair Display', serif; }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #0f172a; }
+        ::-webkit-scrollbar-thumb { background: #0ea5e9; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0284c7; }
+
+        .fade-in { opacity: 0; transform: translateY(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in.visible { opacity: 1; transform: translateY(0); }
+        .fade-in-left { opacity: 0; transform: translateX(-30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in-left.visible { opacity: 1; transform: translateX(0); }
+        .fade-in-right { opacity: 0; transform: translateX(30px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .fade-in-right.visible { opacity: 1; transform: translateX(0); }
+
+        .hero-bg { background-attachment: fixed; background-position: center; background-repeat: no-repeat; background-size: cover; }
+        @media (max-width: 768px) { .hero-bg { background-attachment: scroll; } }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #0ea5e9, #eab308);
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+        }
+
+        .glass { background: rgba(255, 255, 255, 0.1); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.2); }
+        .glass-dark { background: rgba(15, 23, 42, 0.85); backdrop-filter: blur(20px); border: 1px solid rgba(255, 255, 255, 0.1); }
+
+        .btn-primary { position: relative; overflow: hidden; transition: all 0.4s ease; }
+        .btn-primary::before {
+            content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+        .btn-primary:hover::before { left: 100%; }
+
+        .service-card { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .service-card:hover { transform: translateY(-12px); box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); }
+
+        .project-card { overflow: hidden; }
+        .project-card img { transition: transform 0.6s ease, filter 0.6s ease; }
+        .project-card:hover img { transform: scale(1.1); }
+        .project-overlay { opacity: 0; transition: opacity 0.4s ease; }
+        .project-card:hover .project-overlay { opacity: 1; }
+
+        .testimonial-card { transition: all 0.3s ease; }
+        .testimonial-card:hover { transform: translateY(-5px); }
+
+        .dropdown-menu { opacity: 0; visibility: hidden; transform: translateY(-10px); transition: all 0.3s ease; }
+        .group:hover .dropdown-menu, .dropdown-menu.active { opacity: 1; visibility: visible; transform: translateY(0); }
+
+        .mobile-menu { transform: translateX(100%); transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .mobile-menu.open { transform: translateX(0); }
+
+        .input-focus:focus { border-color: #0ea5e9; box-shadow: 0 0 0 3px rgba(14, 165, 233, 0.1); }
+
+        .loader {
+            position: fixed; inset: 0; background: #0f172a; z-index: 9999;
+            display: flex; align-items: center; justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+        .loader.hidden { opacity: 0; visibility: hidden; }
+        .loader-spinner {
+            width: 50px; height: 50px; border: 3px solid rgba(255,255,255,0.1);
+            border-top-color: #0ea5e9; border-radius: 50%; animation: spin 1s linear infinite;
+        }
+        @keyframes spin { to { transform: rotate(360deg); } }
+
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .float-animation { animation: float 3s ease-in-out infinite; }
+
+        .mobile-dropdown { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+        .mobile-dropdown.open { max-height: 500px; }
+
+        /* Bio-digester Benefits Cards */
+        .benefit-card { transition: all 0.3s ease; }
+        .benefit-card:hover { transform: translateY(-5px); box-shadow: 0 20px 40px rgba(0,0,0,0.3); }
+
+        /* WhatsApp Float Button */
+        .whatsapp-float {
+            position: fixed; bottom: 24px; right: 24px; z-index: 50;
+            width: 60px; height: 60px; border-radius: 50%;
+            background: #25D366; color: white; display: flex; align-items: center; justify-content: center;
+            font-size: 28px; box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            transition: all 0.3s ease; animation: pulse-ring 2s infinite;
+        }
+        .whatsapp-float:hover { transform: scale(1.1); box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6); }
+        @keyframes pulse-ring {
+            0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+        }
+
+        @media (max-width: 640px) {
+            .whatsapp-float { width: 52px; height: 52px; font-size: 24px; bottom: 16px; right: 16px; }
+        }
+    </style>
 </head>
-<body>
-  <header>
-    <div class="container nav-container">
-      <a href="index.html" class="logo">Vision To Action <span>Engineering</span></a>
-      <div class="menu-toggle"><i class="fas fa-bars"></i></div>
-      <nav>
-        <ul>
-          <li><a href="index.html" class="active">Home</a></li>
-          <li><a href="about.html">About</a></li>
-          <li><a href="services.html">Services</a></li>
-          <li><a href="gallery.html">Gallery</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+<body class="bg-dark-950 text-dark-100 overflow-x-hidden">
 
-  <main>
-    <!-- Hero Section (full screen) -->
-    <section id="home-hero" class="hero-full">
-      <div class="hero-content">
-        <h1>Vision To Action <br>Engineering Company</h1>
-        <div class="typed-text"><span id="typing"></span></div>
-        <div class="cta-buttons">
-          <a href="contact.html" class="btn">Contact Us</a>
-          <a href="services.html" class="btn btn-outline">Our Services</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- About teaser -->
-    <section class="section">
-      <div class="container">
-        <div class="grid-2">
-          <div>
-            <h2 class="section-title-left">Crafting Excellence Since 2010</h2>
-            <p>Based in Munuki, Juba, with branches in Kapuri and Gurei, we combine engineering expertise with premium construction. Our team ensures every project meets the highest standards of durability and aesthetics.</p>
-            <a href="about.html" class="btn">Learn More</a>
-          </div>
-          <div>
-            <img src="assets/homes.jpg" alt="Team working" class="rounded-image">
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Services teaser (3 services) -->
-    <section class="section bg-beige">
-      <div class="container">
-        <h2 class="section-title">Our Core Services</h2>
-        <div class="services-grid">
-          <div class="service-card">
-            <i class="fas fa-cogs service-icon"></i>
-            <h3>Mechanical Engineering</h3>
-            <p>HVAC, plumbing, and industrial systems design & installation.</p>
-          </div>
-          <div class="service-card">
-            <i class="fas fa-bolt service-icon"></i>
-            <h3>Electrical Engineering</h3>
-            <p>Power distribution, smart wiring, and backup solutions.</p>
-          </div>
-          <div class="service-card">
-            <i class="fas fa-building service-icon"></i>
-            <h3>Structural Engineering</h3>
-            <p>Steel, concrete, and seismic retrofitting for safety.</p>
-          </div>
-        </div>
+    <!-- Loader -->
+    <div id="loader" class="loader">
         <div class="text-center">
-          <a href="services.html" class="btn">See All Services</a>
+            <div class="loader-spinner mx-auto mb-4"></div>
+            <p class="text-primary-400 font-medium tracking-widest text-sm">ADVANCED SANITATION SERVICES</p>
         </div>
-      </div>
-    </section>
-
-    <!-- Why Choose Us -->
-    <section class="section">
-      <div class="container">
-        <h2 class="section-title">Why Choose Us</h2>
-        <div class="grid-3">
-          <div class="why-card">
-            <i class="fas fa-medal"></i>
-            <h3>15+ Years Experience</h3>
-            <p>Decades of combined expertise in engineering and construction.</p>
-          </div>
-          <div class="why-card">
-            <i class="fas fa-users"></i>
-            <h3>Skilled Craftsmen</h3>
-            <p>Our team includes certified engineers and master builders.</p>
-          </div>
-          <div class="why-card">
-            <i class="fas fa-clock"></i>
-            <h3>On Time & On Budget</h3>
-            <p>We respect your timeline and financial plan.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Gallery teaser (3 images) -->
-    <section class="section bg-beige">
-      <div class="container">
-        <h2 class="section-title">Recent Projects</h2>
-        <div class="gallery-grid">
-          <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Project 1">
-          <img src="assets/homes.jpg" alt="Project 2">
-          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80" alt="Project 3">
-        </div>
-        <div class="text-center">
-          <a href="gallery.html" class="btn">See Full Gallery</a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Call to Action (common background) -->
-    <section class="cta-section">
-      <div class="container">
-        <h2>Ready to Start Your Project?</h2>
-        <p>Let's discuss your vision and turn it into reality.</p>
-        <a href="contact.html" class="btn btn-light">Get in Touch</a>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="container">
-      <div class="footer-grid">
-        <div class="footer-col">
-          <h4>Vision To Action Engineering</h4>
-          <p>Creating exceptional luxury homes and infrastructure with unparalleled craftsmanship for over 15 years in South Sudan.</p>
-          <div class="social">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-whatsapp"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
-          </div>
-        </div>
-        <div class="footer-col">
-          <h4>Quick Links</h4>
-          <ul>
-            <li><a href="index.html">Home</a></li>
-            <li><a href="about.html">About</a></li>
-            <li><a href="services.html">Services</a></li>
-            <li><a href="gallery.html">Gallery</a></li>
-            <li><a href="contact.html">Contact</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Services</h4>
-          <ul>
-            <li><a href="services.html">Mechanical</a></li>
-            <li><a href="services.html">Electrical</a></li>
-            <li><a href="services.html">Structural</a></li>
-            <li><a href="services.html">Civil</a></li>
-            <li><a href="services.html">Concrete Blocks</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h4>Contact Info</h4>
-          <ul class="contact-info">
-            <li><i class="fas fa-map-marker-alt"></i> Munuki, Juba, South Sudan</li>
-            <li><i class="fas fa-phone"></i> 0928 583 801</li>
-            <li><i class="fab fa-whatsapp"></i> +211 924 287 650</li>
-            <li><i class="fas fa-envelope"></i> info@visiontoactionco.com</li>
-          </ul>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <p>&copy; 2026 Vision To Action Engineering Company Ltd. All rights reserved.</p>
-      </div>
     </div>
-  </footer>
 
-  <script src="script.js"></script>
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20 lg:h-24">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center space-x-3 group">
+                    <div class="w-10 h-10 lg:w-12 lg:h-12 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center transform group-hover:rotate-6 transition-transform duration-300">
+                        <i class="fas fa-leaf text-white text-lg lg:text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-white font-bold text-lg lg:text-xl tracking-tight">ADVANCED</span>
+                        <span class="block text-primary-400 text-xs lg:text-sm font-medium tracking-wider">SANITATION SERVICES LTD</span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation -->
+                <div class="hidden lg:flex items-center space-x-1">
+                    <a href="#home" class="nav-link px-4 py-2 text-sm font-medium text-white hover:text-primary-400 transition-colors duration-300 relative group">
+                        Home
+                        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#about" class="nav-link px-4 py-2 text-sm font-medium text-dark-300 hover:text-white transition-colors duration-300 relative group">
+                        About
+                        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    
+                    <!-- Services Dropdown -->
+                    <div class="relative group">
+                        <button class="nav-link px-4 py-2 text-sm font-medium text-dark-300 hover:text-white transition-colors duration-300 flex items-center gap-1 relative group">
+                            Services
+                            <i class="fas fa-chevron-down text-xs transition-transform duration-300 group-hover:rotate-180"></i>
+                            <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
+                        </button>
+                        <div class="dropdown-menu absolute top-full left-0 w-80 bg-dark-900/95 backdrop-blur-xl border border-dark-700/50 rounded-2xl shadow-2xl shadow-primary-500/10 p-4 mt-2">
+                            <div class="space-y-1">
+                                <a href="#services" class="flex items-center gap-3 p-3 rounded-xl hover:bg-primary-500/10 transition-colors duration-300 group/item">
+                                    <div class="w-10 h-10 rounded-lg bg-primary-500/20 flex items-center justify-center">
+                                        <i class="fas fa-biohazard text-primary-400"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-medium text-sm">Bio-Digester Septic Tanks</p>
+                                        <p class="text-dark-400 text-xs">Advanced installation services</p>
+                                    </div>
+                                </a>
+                                <a href="#services" class="flex items-center gap-3 p-3 rounded-xl hover:bg-primary-500/10 transition-colors duration-300 group/item">
+                                    <div class="w-10 h-10 rounded-lg bg-primary-500/20 flex items-center justify-center">
+                                        <i class="fas fa-fire text-primary-400"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-medium text-sm">Biogas System Solutions</p>
+                                        <p class="text-dark-400 text-xs">Renewable energy from waste</p>
+                                    </div>
+                                </a>
+                                <a href="#services" class="flex items-center gap-3 p-3 rounded-xl hover:bg-primary-500/10 transition-colors duration-300 group/item">
+                                    <div class="w-10 h-10 rounded-lg bg-primary-500/20 flex items-center justify-center">
+                                        <i class="fas fa-recycle text-primary-400"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-medium text-sm">Waste Management</p>
+                                        <p class="text-dark-400 text-xs">Comprehensive waste solutions</p>
+                                    </div>
+                                </a>
+                                <a href="#services" class="flex items-center gap-3 p-3 rounded-xl hover:bg-primary-500/10 transition-colors duration-300 group/item">
+                                    <div class="w-10 h-10 rounded-lg bg-primary-500/20 flex items-center justify-center">
+                                        <i class="fas fa-dumpster text-primary-400"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-medium text-sm">Septic Tank Construction</p>
+                                        <p class="text-dark-400 text-xs">Build & modification services</p>
+                                    </div>
+                                </a>
+                                <a href="#services" class="flex items-center gap-3 p-3 rounded-xl hover:bg-primary-500/10 transition-colors duration-300 group/item">
+                                    <div class="w-10 h-10 rounded-lg bg-primary-500/20 flex items-center justify-center">
+                                        <i class="fas fa-tint text-primary-400"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-medium text-sm">Shallow Well Drilling</p>
+                                        <p class="text-dark-400 text-xs">Professional drilling services</p>
+                                    </div>
+                                </a>
+                                <a href="#services" class="flex items-center gap-3 p-3 rounded-xl hover:bg-primary-500/10 transition-colors duration-300 group/item">
+                                    <div class="w-10 h-10 rounded-lg bg-primary-500/20 flex items-center justify-center">
+                                        <i class="fas fa-water text-primary-400"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-medium text-sm">Drainage & Cleaning</p>
+                                        <p class="text-dark-400 text-xs">Complete drainage solutions</p>
+                                    </div>
+                                </a>
+                                <a href="#services" class="flex items-center gap-3 p-3 rounded-xl hover:bg-primary-500/10 transition-colors duration-300 group/item">
+                                    <div class="w-10 h-10 rounded-lg bg-primary-500/20 flex items-center justify-center">
+                                        <i class="fas fa-globe-americas text-primary-400"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-medium text-sm">Environmental Sanitation</p>
+                                        <p class="text-dark-400 text-xs">Sustainable sanitation solutions</p>
+                                    </div>
+                                </a>
+                                <a href="#services" class="flex items-center gap-3 p-3 rounded-xl hover:bg-primary-500/10 transition-colors duration-300 group/item">
+                                    <div class="w-10 h-10 rounded-lg bg-primary-500/20 flex items-center justify-center">
+                                        <i class="fas fa-building text-primary-400"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-medium text-sm">General Construction</p>
+                                        <p class="text-dark-400 text-xs">Quality construction services</p>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#projects" class="nav-link px-4 py-2 text-sm font-medium text-dark-300 hover:text-white transition-colors duration-300 relative group">
+                        Projects
+                        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#contact" class="nav-link px-4 py-2 text-sm font-medium text-dark-300 hover:text-white transition-colors duration-300 relative group">
+                        Contact
+                        <span class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-0 h-0.5 bg-primary-400 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                </div>
+
+                <!-- Right Side: Phone + CTA -->
+                <div class="hidden lg:flex items-center gap-6">
+                    <a href="https://wa.me/211929970050" target="_blank" class="flex items-center gap-2 text-dark-300 hover:text-primary-400 transition-colors duration-300">
+                        <div class="w-8 h-8 rounded-full bg-[#25D366]/10 flex items-center justify-center">
+                            <i class="fab fa-whatsapp text-[#25D366] text-xs"></i>
+                        </div>
+                        <span class="text-sm font-medium">+211 929 970 050</span>
+                    </a>
+                    <a href="#contact" class="btn-primary bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-3 rounded-xl text-sm font-semibold hover:shadow-lg hover:shadow-primary-500/30 transition-all duration-300">
+                        Get Quote
+                    </a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden relative w-10 h-10 flex items-center justify-center">
+                    <span class="block absolute h-0.5 w-6 bg-white transition-all duration-300" id="bar1"></span>
+                    <span class="block absolute h-0.5 w-6 bg-white transition-all duration-300" id="bar2"></span>
+                    <span class="block absolute h-0.5 w-6 bg-white transition-all duration-300" id="bar3"></span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="mobile-menu fixed top-0 right-0 w-full max-w-sm h-screen bg-dark-950/98 backdrop-blur-xl z-50 lg:hidden">
+            <div class="flex flex-col h-full pt-24 pb-8 px-6">
+                <div class="flex-1 space-y-2">
+                    <a href="#home" class="mobile-nav-link block px-4 py-3 text-white font-medium text-lg hover:text-primary-400 transition-colors border-b border-dark-800">Home</a>
+                    <a href="#about" class="mobile-nav-link block px-4 py-3 text-dark-300 font-medium text-lg hover:text-primary-400 transition-colors border-b border-dark-800">About</a>
+                    
+                    <!-- Mobile Services Dropdown -->
+                    <div class="border-b border-dark-800">
+                        <button id="mobile-services-toggle" class="w-full flex items-center justify-between px-4 py-3 text-dark-300 font-medium text-lg hover:text-primary-400 transition-colors">
+                            <span>Services</span>
+                            <i class="fas fa-chevron-down text-sm transition-transform duration-300" id="mobile-services-icon"></i>
+                        </button>
+                        <div id="mobile-services-dropdown" class="mobile-dropdown px-4">
+                            <div class="pb-4 space-y-2">
+                                <a href="#services" class="mobile-nav-link block px-4 py-2 text-dark-400 hover:text-primary-400 transition-colors text-sm">Bio-Digester Septic Tanks</a>
+                                <a href="#services" class="mobile-nav-link block px-4 py-2 text-dark-400 hover:text-primary-400 transition-colors text-sm">Biogas System Solutions</a>
+                                <a href="#services" class="mobile-nav-link block px-4 py-2 text-dark-400 hover:text-primary-400 transition-colors text-sm">Waste Management Services</a>
+                                <a href="#services" class="mobile-nav-link block px-4 py-2 text-dark-400 hover:text-primary-400 transition-colors text-sm">Septic Tank Construction</a>
+                                <a href="#services" class="mobile-nav-link block px-4 py-2 text-dark-400 hover:text-primary-400 transition-colors text-sm">Shallow Well Drilling</a>
+                                <a href="#services" class="mobile-nav-link block px-4 py-2 text-dark-400 hover:text-primary-400 transition-colors text-sm">Drainage & Cleaning Services</a>
+                                <a href="#services" class="mobile-nav-link block px-4 py-2 text-dark-400 hover:text-primary-400 transition-colors text-sm">Environmental Sanitation</a>
+                                <a href="#services" class="mobile-nav-link block px-4 py-2 text-dark-400 hover:text-primary-400 transition-colors text-sm">General Construction Services</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#projects" class="mobile-nav-link block px-4 py-3 text-dark-300 font-medium text-lg hover:text-primary-400 transition-colors border-b border-dark-800">Projects</a>
+                    <a href="#contact" class="mobile-nav-link block px-4 py-3 text-dark-300 font-medium text-lg hover:text-primary-400 transition-colors border-b border-dark-800">Contact</a>
+                </div>
+
+                <div class="mt-auto space-y-4">
+                    <a href="https://wa.me/211929970050" target="_blank" class="flex items-center gap-3 px-4 py-3 text-dark-300 hover:text-[#25D366] transition-colors">
+                        <div class="w-10 h-10 rounded-full bg-[#25D366]/10 flex items-center justify-center">
+                            <i class="fab fa-whatsapp text-[#25D366]"></i>
+                        </div>
+                        <span class="font-medium">+211 929 970 050</span>
+                    </a>
+                    <a href="#contact" class="btn-primary block text-center bg-gradient-to-r from-primary-500 to-primary-600 text-white px-6 py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary-500/30 transition-all duration-300">
+                        Get Free Quote
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobile-overlay" class="fixed inset-0 bg-black/50 z-40 hidden lg:hidden backdrop-blur-sm"></div>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <!-- Background Image - Sanitation/Infrastructure themed -->
+        <div class="absolute inset-0 hero-bg" style="background-image: url('https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1920&q=80');">
+            <div class="absolute inset-0 bg-gradient-to-r from-dark-950/95 via-dark-950/80 to-dark-950/60"></div>
+            <div class="absolute inset-0 bg-gradient-to-t from-dark-950 via-transparent to-dark-950/30"></div>
+        </div>
+
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 overflow-hidden pointer-events-none">
+            <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-primary-500/10 rounded-full blur-3xl float-animation"></div>
+            <div class="absolute bottom-1/4 right-1/4 w-80 h-80 bg-accent-500/5 rounded-full blur-3xl" style="animation-delay: 1.5s;"></div>
+        </div>
+
+        <!-- Hero Content -->
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-32 pb-20">
+            <div class="max-w-4xl">
+                <!-- Badge -->
+                <div class="fade-in inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 mb-8">
+                    <span class="w-2 h-2 bg-primary-400 rounded-full animate-pulse"></span>
+                    <span class="text-primary-300 text-sm font-medium tracking-wide">📍 JUBA, SOUTH SUDAN • ALWAYS OPEN</span>
+                </div>
+
+                <!-- Headline -->
+                <h1 class="fade-in font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-tight mb-6" style="transition-delay: 0.1s;">
+                    Professional
+                    <span class="gradient-text">Sanitation</span>
+                    <br>& Bio-Digester Solutions
+                </h1>
+
+                <!-- Subheadline -->
+                <p class="fade-in text-lg sm:text-xl text-dark-300 max-w-2xl mb-10 leading-relaxed" style="transition-delay: 0.2s;">
+                    Advanced Sanitation Services LTD delivers modern, environmentally friendly waste management systems, advanced bio-digester septic tanks, biogas solutions, and construction services across Juba and beyond.
+                </p>
+
+                <!-- CTAs -->
+                <div class="fade-in flex flex-col sm:flex-row gap-4" style="transition-delay: 0.3s;">
+                    <a href="https://wa.me/211929970050" target="_blank" class="btn-primary inline-flex items-center justify-center gap-3 bg-[#25D366] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#128C7E] transition-all duration-300 hover:shadow-xl hover:shadow-[#25D366]/20">
+                        <i class="fab fa-whatsapp text-xl"></i>
+                        WhatsApp Us
+                    </a>
+                    <a href="#contact" class="btn-primary inline-flex items-center justify-center gap-3 border-2 border-white/20 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:border-primary-400 hover:text-primary-400 transition-all duration-300 backdrop-blur-sm">
+                        <i class="fas fa-file-invoice"></i>
+                        Get Free Quote
+                    </a>
+                </div>
+
+                <!-- Trust Badges -->
+                <div class="fade-in mt-12 pt-8 border-t border-white/10 flex flex-wrap gap-6" style="transition-delay: 0.4s;">
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-primary-400"></i>
+                        <span class="text-dark-300 text-sm">No Regular Emptying Needed</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-primary-400"></i>
+                        <span class="text-dark-300 text-sm">Odor-Free Systems</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <i class="fas fa-check-circle text-primary-400"></i>
+                        <span class="text-dark-300 text-sm">Eco-Friendly Solutions</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 z-10">
+            <a href="#about" class="flex flex-col items-center gap-2 text-dark-400 hover:text-primary-400 transition-colors">
+                <span class="text-xs tracking-widest uppercase">Scroll</span>
+                <div class="w-6 h-10 border-2 border-current rounded-full flex justify-center pt-2">
+                    <div class="w-1.5 h-3 bg-current rounded-full animate-bounce"></div>
+                </div>
+            </a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="relative py-24 lg:py-32 bg-dark-950 overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-gradient-to-l from-primary-500/5 to-transparent pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <!-- Image Side -->
+                <div class="fade-in-left relative">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-primary-500/20 to-accent-500/20 rounded-3xl blur-2xl"></div>
+                        <div class="relative rounded-3xl overflow-hidden">
+                            <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80" alt="Advanced Sanitation Services Team in Juba" class="w-full h-[500px] lg:h-[600px] object-cover">
+                            <div class="absolute inset-0 bg-gradient-to-t from-dark-950/50 to-transparent"></div>
+                        </div>
+                        
+                        <!-- Floating Stats Card -->
+                        <div class="absolute -bottom-6 -right-6 lg:-right-12 bg-dark-900 border border-dark-700 rounded-2xl p-6 shadow-2xl">
+                            <div class="flex items-center gap-4">
+                                <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center">
+                                    <i class="fas fa-map-marker-alt text-white text-xl"></i>
+                                </div>
+                                <div>
+                                    <p class="text-white font-semibold text-lg">Based in Juba</p>
+                                    <p class="text-dark-400 text-sm">Serving South Sudan</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Side -->
+                <div class="fade-in-right">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 mb-6">
+                        <span class="w-2 h-2 bg-primary-400 rounded-full"></span>
+                        <span class="text-primary-300 text-sm font-medium tracking-wide">ABOUT OUR COMPANY</span>
+                    </div>
+
+                    <h2 class="font-serif text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                        Trusted Sanitation &
+                        <span class="gradient-text">Infrastructure Experts</span>
+                    </h2>
+
+                    <p class="text-dark-300 text-lg leading-relaxed mb-6">
+                        Advanced Sanitation Services LTD is a trusted sanitation and infrastructure company based in Juba, South Sudan. We specialize in modern, environmentally friendly waste management systems, including advanced bio-digester septic tanks, biogas solutions, and construction-related services.
+                    </p>
+
+                    <p class="text-dark-400 leading-relaxed mb-8">
+                        With a strong commitment to quality, innovation, and reliability, we deliver efficient sanitation systems that are cost-effective, durable, and suitable for both residential and commercial applications across South Sudan.
+                    </p>
+
+                    <!-- Features Grid -->
+                    <div class="grid sm:grid-cols-2 gap-6 mb-8">
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-award text-primary-400 text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Quality Workmanship</h4>
+                                <p class="text-dark-400 text-sm">High standards on every project</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-bolt text-primary-400 text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Fast Response</h4>
+                                <p class="text-dark-400 text-sm">Always open, quick service</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-leaf text-primary-400 text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Eco-Friendly</h4>
+                                <p class="text-dark-400 text-sm">Sustainable solutions</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-10 h-10 rounded-lg bg-primary-500/10 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-handshake text-primary-400 text-sm"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Customer Satisfaction</h4>
+                                <p class="text-dark-400 text-sm">Your needs come first</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="btn-primary inline-flex items-center gap-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary-500/30 transition-all duration-300">
+                        Contact Us Today
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="relative py-24 lg:py-32 bg-dark-900 overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/4 left-0 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl"></div>
+            <div class="absolute bottom-1/4 right-0 w-80 h-80 bg-accent-500/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16 lg:mb-20">
+                <div class="fade-in inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 mb-6">
+                    <span class="w-2 h-2 bg-primary-400 rounded-full"></span>
+                    <span class="text-primary-300 text-sm font-medium tracking-wide">OUR SERVICES</span>
+                </div>
+                <h2 class="fade-in font-serif text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                    Comprehensive
+                    <span class="gradient-text">Sanitation Solutions</span>
+                </h2>
+                <p class="fade-in text-dark-300 text-lg leading-relaxed">
+                    We provide a wide range of professional services tailored to meet the sanitation and infrastructure needs of residential, commercial, and institutional clients across South Sudan.
+                </p>
+            </div>
+
+            <!-- Services Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+                <!-- Service 1 -->
+                <div class="fade-in service-card bg-dark-950 border border-dark-800 rounded-2xl p-6 lg:p-8 group hover:border-primary-500/30">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-500/20 to-primary-600/20 flex items-center justify-center mb-6 group-hover:from-primary-500 group-hover:to-primary-600 transition-all duration-300">
+                        <i class="fas fa-biohazard text-primary-400 text-xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-white font-semibold text-xl mb-3">Bio-Digester Septic Tanks</h3>
+                    <p class="text-dark-400 text-sm leading-relaxed mb-6">Advanced triple bio-digester systems that eliminate the need for regular emptying, produce no odors, and work efficiently in all environments.</p>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-primary-400 font-medium text-sm hover:text-primary-300 transition-colors">
+                        Get Quote <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="fade-in service-card bg-dark-950 border border-dark-800 rounded-2xl p-6 lg:p-8 group hover:border-primary-500/30" style="transition-delay: 0.1s;">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-500/20 to-primary-600/20 flex items-center justify-center mb-6 group-hover:from-primary-500 group-hover:to-primary-600 transition-all duration-300">
+                        <i class="fas fa-fire text-primary-400 text-xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-white font-semibold text-xl mb-3">Biogas System Solutions</h3>
+                    <p class="text-dark-400 text-sm leading-relaxed mb-6">Convert organic waste into clean, renewable biogas energy for cooking, heating, or electricity generation.</p>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-primary-400 font-medium text-sm hover:text-primary-300 transition-colors">
+                        Get Quote <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="fade-in service-card bg-dark-950 border border-dark-800 rounded-2xl p-6 lg:p-8 group hover:border-primary-500/30" style="transition-delay: 0.2s;">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-500/20 to-primary-600/20 flex items-center justify-center mb-6 group-hover:from-primary-500 group-hover:to-primary-600 transition-all duration-300">
+                        <i class="fas fa-recycle text-primary-400 text-xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-white font-semibold text-xl mb-3">Waste Management</h3>
+                    <p class="text-dark-400 text-sm leading-relaxed mb-6">Comprehensive waste collection, sorting, treatment, and disposal services for residential, commercial, and industrial clients.</p>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-primary-400 font-medium text-sm hover:text-primary-300 transition-colors">
+                        Get Quote <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Service 4 -->
+                <div class="fade-in service-card bg-dark-950 border border-dark-800 rounded-2xl p-6 lg:p-8 group hover:border-primary-500/30" style="transition-delay: 0.3s;">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-500/20 to-primary-600/20 flex items-center justify-center mb-6 group-hover:from-primary-500 group-hover:to-primary-600 transition-all duration-300">
+                        <i class="fas fa-dumpster text-primary-400 text-xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-white font-semibold text-xl mb-3">Septic Tank Construction</h3>
+                    <p class="text-dark-400 text-sm leading-relaxed mb-6">Professional construction, installation, and modification of septic tanks designed for optimal performance and longevity.</p>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-primary-400 font-medium text-sm hover:text-primary-300 transition-colors">
+                        Get Quote <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Service 5 -->
+                <div class="fade-in service-card bg-dark-950 border border-dark-800 rounded-2xl p-6 lg:p-8 group hover:border-primary-500/30" style="transition-delay: 0.4s;">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-500/20 to-primary-600/20 flex items-center justify-center mb-6 group-hover:from-primary-500 group-hover:to-primary-600 transition-all duration-300">
+                        <i class="fas fa-tint text-primary-400 text-xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-white font-semibold text-xl mb-3">Shallow Well Drilling</h3>
+                    <p class="text-dark-400 text-sm leading-relaxed mb-6">Professional shallow well drilling services for reliable water access in residential and commercial properties.</p>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-primary-400 font-medium text-sm hover:text-primary-300 transition-colors">
+                        Get Quote <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Service 6 -->
+                <div class="fade-in service-card bg-dark-950 border border-dark-800 rounded-2xl p-6 lg:p-8 group hover:border-primary-500/30" style="transition-delay: 0.5s;">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-500/20 to-primary-600/20 flex items-center justify-center mb-6 group-hover:from-primary-500 group-hover:to-primary-600 transition-all duration-300">
+                        <i class="fas fa-water text-primary-400 text-xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-white font-semibold text-xl mb-3">Drainage & Cleaning</h3>
+                    <p class="text-dark-400 text-sm leading-relaxed mb-6">Complete drainage system installation, maintenance, and professional cleaning services to prevent flooding and ensure hygiene.</p>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-primary-400 font-medium text-sm hover:text-primary-300 transition-colors">
+                        Get Quote <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Service 7 -->
+                <div class="fade-in service-card bg-dark-950 border border-dark-800 rounded-2xl p-6 lg:p-8 group hover:border-primary-500/30" style="transition-delay: 0.6s;">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-500/20 to-primary-600/20 flex items-center justify-center mb-6 group-hover:from-primary-500 group-hover:to-primary-600 transition-all duration-300">
+                        <i class="fas fa-globe-americas text-primary-400 text-xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-white font-semibold text-xl mb-3">Environmental Sanitation</h3>
+                    <p class="text-dark-400 text-sm leading-relaxed mb-6">Sustainable environmental sanitation solutions for communities, institutions, and public facilities promoting health and hygiene.</p>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-primary-400 font-medium text-sm hover:text-primary-300 transition-colors">
+                        Get Quote <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Service 8 -->
+                <div class="fade-in service-card bg-dark-950 border border-dark-800 rounded-2xl p-6 lg:p-8 group hover:border-primary-500/30" style="transition-delay: 0.7s;">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-primary-500/20 to-primary-600/20 flex items-center justify-center mb-6 group-hover:from-primary-500 group-hover:to-primary-600 transition-all duration-300">
+                        <i class="fas fa-building text-primary-400 text-xl group-hover:text-white transition-colors"></i>
+                    </div>
+                    <h3 class="text-white font-semibold text-xl mb-3">General Construction</h3>
+                    <p class="text-dark-400 text-sm leading-relaxed mb-6">Quality construction services for residential, commercial, and institutional projects with modern techniques and materials.</p>
+                    <a href="#contact" class="inline-flex items-center gap-2 text-primary-400 font-medium text-sm hover:text-primary-300 transition-colors">
+                        Get Quote <i class="fas fa-arrow-right text-xs"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bio-Digester Benefits Section -->
+    <section class="relative py-24 lg:py-32 bg-dark-950 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="fade-in inline-flex items-center gap-2 px-4 py-2 rounded-full bg-accent-500/10 border border-accent-500/20 mb-6">
+                    <span class="w-2 h-2 bg-accent-400 rounded-full"></span>
+                    <span class="text-accent-300 text-sm font-medium tracking-wide">BIO-DIGESTER ADVANTAGES</span>
+                </div>
+                <h2 class="fade-in font-serif text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                    Why Choose Our
+                    <span class="gradient-text">Bio-Digester Systems</span>
+                </h2>
+                <p class="fade-in text-dark-300 text-lg leading-relaxed">
+                    Our advanced bio-digester systems are engineered to deliver exceptional long-term value, efficiency, and environmental benefits for properties across South Sudan.
+                </p>
+            </div>
+
+            <!-- Benefits Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Benefit 1 -->
+                <div class="fade-in benefit-card bg-dark-900 border border-dark-800 rounded-2xl p-6 lg:p-8 text-center">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-primary-500/20 to-primary-600/20 flex items-center justify-center mb-6">
+                        <i class="fas fa-infinity text-primary-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-white font-semibold text-xl mb-3">No Regular Emptying</h3>
+                    <p class="text-dark-400 text-sm leading-relaxed">Advanced digestion process eliminates the need for frequent pumping, saving time and money.</p>
+                </div>
+
+                <!-- Benefit 2 -->
+                <div class="fade-in benefit-card bg-dark-900 border border-dark-800 rounded-2xl p-6 lg:p-8 text-center" style="transition-delay: 0.1s;">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-primary-500/20 to-primary-600/20 flex items-center justify-center mb-6">
+                        <i class="fas fa-wind text-primary-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-white font-semibold text-xl mb-3">No Unpleasant Odors</h3>
+                    <p class="text-dark-400 text-sm leading-relaxed">Sealed anaerobic digestion process prevents odor escape, ensuring a pleasant environment.</p>
+                </div>
+
+                <!-- Benefit 3 -->
+                <div class="fade-in benefit-card bg-dark-900 border border-dark-800 rounded-2xl p-6 lg:p-8 text-center" style="transition-delay: 0.2s;">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-primary-500/20 to-primary-600/20 flex items-center justify-center mb-6">
+                        <i class="fas fa-ruler-combined text-primary-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-white font-semibold text-xl mb-3">Requires Less Space</h3>
+                    <p class="text-dark-400 text-sm leading-relaxed">Compact design maximizes efficiency while minimizing land usage, ideal for urban properties.</p>
+                </div>
+
+                <!-- Benefit 4 -->
+                <div class="fade-in benefit-card bg-dark-900 border border-dark-800 rounded-2xl p-6 lg:p-8 text-center" style="transition-delay: 0.3s;">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-primary-500/20 to-primary-600/20 flex items-center justify-center mb-6">
+                        <i class="fas fa-water text-primary-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-white font-semibold text-xl mb-3">Wetland Compatible</h3>
+                    <p class="text-dark-400 text-sm leading-relaxed">Specially engineered to function effectively in wetlands and challenging soil conditions.</p>
+                </div>
+
+                <!-- Benefit 5 -->
+                <div class="fade-in benefit-card bg-dark-900 border border-dark-800 rounded-2xl p-6 lg:p-8 text-center" style="transition-delay: 0.4s;">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-primary-500/20 to-primary-600/20 flex items-center justify-center mb-6">
+                        <i class="fas fa-coins text-primary-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-white font-semibold text-xl mb-3">Cost-Effective</h3>
+                    <p class="text-dark-400 text-sm leading-relaxed">Affordable installation with minimal long-term maintenance costs delivers excellent ROI.</p>
+                </div>
+
+                <!-- Benefit 6 -->
+                <div class="fade-in benefit-card bg-dark-900 border border-dark-800 rounded-2xl p-6 lg:p-8 text-center" style="transition-delay: 0.5s;">
+                    <div class="w-16 h-16 mx-auto rounded-2xl bg-gradient-to-br from-primary-500/20 to-primary-600/20 flex items-center justify-center mb-6">
+                        <i class="fas fa-leaf text-primary-400 text-2xl"></i>
+                    </div>
+                    <h3 class="text-white font-semibold text-xl mb-3">Eco-Friendly</h3>
+                    <p class="text-dark-400 text-sm leading-relaxed">Environmentally responsible solution that reduces pollution and promotes sustainability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="relative py-24 lg:py-32 bg-dark-900 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 mb-16">
+                <div class="max-w-2xl">
+                    <div class="fade-in inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 mb-6">
+                        <span class="w-2 h-2 bg-primary-400 rounded-full"></span>
+                        <span class="text-primary-300 text-sm font-medium tracking-wide">OUR PORTFOLIO</span>
+                    </div>
+                    <h2 class="fade-in font-serif text-4xl lg:text-5xl font-bold text-white mb-4 leading-tight">
+                        Featured
+                        <span class="gradient-text">Projects in Juba</span>
+                    </h2>
+                    <p class="fade-in text-dark-300 text-lg leading-relaxed">
+                        We have successfully completed multiple sanitation and infrastructure projects across Juba, demonstrating our expertise and commitment to quality.
+                    </p>
+                </div>
+                <div class="fade-in">
+                    <a href="#contact" class="btn-primary inline-flex items-center gap-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary-500/30 transition-all duration-300">
+                        Start Your Project
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+            </div>
+
+            <!-- Projects Grid -->
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+                <!-- Project 1 -->
+                <div class="fade-in project-card rounded-2xl overflow-hidden relative group">
+                    <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80" alt="Rock City Bio-Digester Installation" class="w-full h-72 lg:h-80 object-cover">
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/60 to-transparent flex items-end p-6">
+                        <div>
+                            <span class="text-primary-400 text-sm font-medium mb-2 block">Rock City, Juba</span>
+                            <h3 class="text-white font-semibold text-xl mb-2">Triple Bio-Digester System</h3>
+                            <p class="text-dark-300 text-sm">Advanced triple bio-digester septic tank installation for commercial complex</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="fade-in project-card rounded-2xl overflow-hidden relative group" style="transition-delay: 0.1s;">
+                    <img src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80" alt="Gudele Block 4 Domestic Bio-Digester" class="w-full h-72 lg:h-80 object-cover">
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/60 to-transparent flex items-end p-6">
+                        <div>
+                            <span class="text-primary-400 text-sm font-medium mb-2 block">Gudele Block 4</span>
+                            <h3 class="text-white font-semibold text-xl mb-2">Domestic Bio-Digester Systems</h3>
+                            <p class="text-dark-300 text-sm">Residential bio-digester installations for sustainable home sanitation</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="fade-in project-card rounded-2xl overflow-hidden relative group" style="transition-delay: 0.2s;">
+                    <img src="https://images.unsplash.com/photo-1590644365607-1c5e64067c91?w=600&q=80" alt="Gurei South Bio-Digester Project" class="w-full h-72 lg:h-80 object-cover">
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/60 to-transparent flex items-end p-6">
+                        <div>
+                            <span class="text-primary-400 text-sm font-medium mb-2 block">Gurei South</span>
+                            <h3 class="text-white font-semibold text-xl mb-2">Bio-Digester Installations</h3>
+                            <p class="text-dark-300 text-sm">Community-scale bio-digester systems for improved sanitation access</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="fade-in project-card rounded-2xl overflow-hidden relative group" style="transition-delay: 0.3s;">
+                    <img src="https://images.unsplash.com/photo-1581094288338-2314dddb7ece?w=600&q=80" alt="Ministry of Prison Services Sanitation" class="w-full h-72 lg:h-80 object-cover">
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/60 to-transparent flex items-end p-6">
+                        <div>
+                            <span class="text-primary-400 text-sm font-medium mb-2 block">Ministry of Prison Services</span>
+                            <h3 class="text-white font-semibold text-xl mb-2">Institutional Sanitation Systems</h3>
+                            <p class="text-dark-300 text-sm">Large-scale sanitation infrastructure for government facility in Juba</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="fade-in project-card rounded-2xl overflow-hidden relative group" style="transition-delay: 0.4s;">
+                    <img src="https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=600&q=80" alt="System Upgrade Project" class="w-full h-72 lg:h-80 object-cover">
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/60 to-transparent flex items-end p-6">
+                        <div>
+                            <span class="text-primary-400 text-sm font-medium mb-2 block">Various Locations</span>
+                            <h3 class="text-white font-semibold text-xl mb-2">System Upgrades & Modifications</h3>
+                            <p class="text-dark-300 text-sm">Performance enhancements and modifications for existing sanitation systems</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="fade-in project-card rounded-2xl overflow-hidden relative group" style="transition-delay: 0.5s;">
+                    <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80" alt="Environmental Sanitation Project" class="w-full h-72 lg:h-80 object-cover">
+                    <div class="project-overlay absolute inset-0 bg-gradient-to-t from-dark-950 via-dark-950/60 to-transparent flex items-end p-6">
+                        <div>
+                            <span class="text-primary-400 text-sm font-medium mb-2 block">Juba Metropolitan</span>
+                            <h3 class="text-white font-semibold text-xl mb-2">Environmental Sanitation Solutions</h3>
+                            <p class="text-dark-300 text-sm">Comprehensive sanitation solutions for urban communities and public spaces</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Our Expertise Section -->
+    <section class="relative py-24 lg:py-32 bg-dark-950 overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary-500/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
+                <!-- Content Side -->
+                <div class="fade-in-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 mb-6">
+                        <span class="w-2 h-2 bg-primary-400 rounded-full"></span>
+                        <span class="text-primary-300 text-sm font-medium tracking-wide">OUR EXPERTISE</span>
+                    </div>
+
+                    <h2 class="font-serif text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                        Proven Experience
+                        <span class="gradient-text">Across South Sudan</span>
+                    </h2>
+
+                    <p class="text-dark-300 text-lg leading-relaxed mb-6">
+                        Our experience allows us to handle projects of all sizes with professionalism and precision. From residential bio-digesters to large-scale institutional sanitation systems, we deliver results that exceed expectations.
+                    </p>
+
+                    <div class="space-y-4 mb-8">
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-primary-500/10 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-check text-primary-400 text-sm"></i>
+                            </div>
+                            <p class="text-dark-300">Multiple successful projects completed across Juba</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-primary-500/10 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-check text-primary-400 text-sm"></i>
+                            </div>
+                            <p class="text-dark-300">Expertise in both new installations and system modifications</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-primary-500/10 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-check text-primary-400 text-sm"></i>
+                            </div>
+                            <p class="text-dark-300">Trusted by government institutions and private clients</p>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="w-8 h-8 rounded-lg bg-primary-500/10 flex items-center justify-center flex-shrink-0 mt-1">
+                                <i class="fas fa-check text-primary-400 text-sm"></i>
+                            </div>
+                            <p class="text-dark-300">Adaptable solutions for diverse environments and requirements</p>
+                        </div>
+                    </div>
+
+                    <a href="#contact" class="btn-primary inline-flex items-center gap-2 bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-4 rounded-xl font-semibold hover:shadow-lg hover:shadow-primary-500/30 transition-all duration-300">
+                        Discuss Your Project
+                        <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- Image/Stats Side -->
+                <div class="fade-in-right">
+                    <div class="relative">
+                        <div class="absolute -inset-4 bg-gradient-to-r from-accent-500/20 to-primary-500/20 rounded-3xl blur-2xl"></div>
+                        <div class="relative bg-dark-900 border border-dark-800 rounded-3xl p-8">
+                            <h3 class="text-white font-semibold text-2xl mb-6">Project Highlights</h3>
+                            <div class="space-y-6">
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-building text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-medium">Rock City Complex</p>
+                                        <p class="text-dark-400 text-sm">Triple bio-digester installation</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-home text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-medium">Gudele Block 4</p>
+                                        <p class="text-dark-400 text-sm">Domestic bio-digester systems</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-map-marker-alt text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-medium">Gurei South</p>
+                                        <p class="text-dark-400 text-sm">Community bio-digester projects</p>
+                                    </div>
+                                </div>
+                                <div class="flex items-center gap-4">
+                                    <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-primary-500 to-accent-500 flex items-center justify-center flex-shrink-0">
+                                        <i class="fas fa-landmark text-white"></i>
+                                    </div>
+                                    <div>
+                                        <p class="text-white font-medium">Ministry of Prison Services</p>
+                                        <p class="text-dark-400 text-sm">Institutional sanitation systems</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="relative py-24 lg:py-32 bg-dark-900 overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-0 left-0 w-full h-full bg-gradient-to-b from-dark-950/50 to-transparent"></div>
+            <div class="absolute bottom-0 left-1/4 w-96 h-96 bg-primary-500/5 rounded-full blur-3xl"></div>
+            <div class="absolute top-1/4 right-1/4 w-80 h-80 bg-accent-500/5 rounded-full blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <!-- Section Header -->
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <div class="fade-in inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary-500/10 border border-primary-500/20 mb-6">
+                    <span class="w-2 h-2 bg-primary-400 rounded-full"></span>
+                    <span class="text-primary-300 text-sm font-medium tracking-wide">GET IN TOUCH</span>
+                </div>
+                <h2 class="fade-in font-serif text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                    Contact Us for
+                    <span class="gradient-text">Professional Solutions</span>
+                </h2>
+                <p class="fade-in text-dark-300 text-lg leading-relaxed">
+                    For inquiries, consultations, or project requests, contact us today. Our team is ready to provide reliable, professional, and affordable sanitation solutions tailored to your needs.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-5 gap-12 lg:gap-16">
+                <!-- Contact Info -->
+                <div class="lg:col-span-2 fade-in-left">
+                    <h3 class="text-white font-semibold text-2xl mb-6">Business Information</h3>
+                    
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-primary-500/10 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-primary-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Location</h4>
+                                <p class="text-dark-400">Juba, South Sudan</p>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-[#25D366]/10 flex items-center justify-center flex-shrink-0">
+                                <i class="fab fa-whatsapp text-[#25D366]"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Phone / WhatsApp</h4>
+                                <a href="https://wa.me/211929970050" target="_blank" class="text-dark-400 hover:text-[#25D366] transition-colors font-medium">+211 929 970 050</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-primary-500/10 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-primary-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Email</h4>
+                                <a href="mailto:info@sanitationadvanced.com" class="text-dark-400 hover:text-primary-400 transition-colors">info@sanitationadvanced.com</a>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-accent-500/10 flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-clock text-accent-400"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-semibold mb-1">Status</h4>
+                                <p class="text-dark-400"><span class="text-[#25D366] font-medium">●</span> Always Open</p>
+                                <p class="text-dark-500 text-sm mt-1">Available for consultations and emergency services</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="mt-8 pt-8 border-t border-dark-800">
+                        <h4 class="text-white font-semibold mb-4">Quick Actions</h4>
+                        <div class="flex flex-col gap-3">
+                            <a href="https://wa.me/211929970050" target="_blank" class="flex items-center justify-center gap-3 bg-[#25D366] hover:bg-[#128C7E] text-white px-6 py-3 rounded-xl font-medium transition-all duration-300">
+                                <i class="fab fa-whatsapp text-lg"></i>
+                                Chat on WhatsApp
+                            </a>
+                            <a href="tel:+211929970050" class="flex items-center justify-center gap-3 bg-dark-800 hover:bg-dark-700 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300">
+                                <i class="fas fa-phone"></i>
+                                Call Now
+                            </a>
+                            <a href="mailto:info@sanitationadvanced.com" class="flex items-center justify-center gap-3 bg-dark-800 hover:bg-dark-700 text-white px-6 py-3 rounded-xl font-medium transition-all duration-300">
+                                <i class="fas fa-envelope"></i>
+                                Send Email
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Form -->
+                <div class="lg:col-span-3 fade-in-right">
+                    <form id="contact-form" class="bg-dark-950 border border-dark-800 rounded-2xl p-8 lg:p-10">
+                        <h3 class="text-white font-semibold text-2xl mb-2">Request a Free Consultation</h3>
+                        <p class="text-dark-400 text-sm mb-8">Tell us about your sanitation or construction needs. We'll respond within 24 hours.</p>
+
+                        <div class="grid sm:grid-cols-2 gap-6 mb-6">
+                            <div>
+                                <label class="block text-dark-300 text-sm font-medium mb-2">Full Name *</label>
+                                <input type="text" required class="input-focus w-full bg-dark-900 border border-dark-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-all duration-300" placeholder="Your name">
+                            </div>
+                            <div>
+                                <label class="block text-dark-300 text-sm font-medium mb-2">Phone Number *</label>
+                                <input type="tel" required class="input-focus w-full bg-dark-900 border border-dark-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-all duration-300" placeholder="+211 XXX XXX XXX">
+                            </div>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-dark-300 text-sm font-medium mb-2">Email Address</label>
+                            <input type="email" class="input-focus w-full bg-dark-900 border border-dark-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-all duration-300" placeholder="your@email.com">
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-dark-300 text-sm font-medium mb-2">Service Interested In *</label>
+                            <select required class="input-focus w-full bg-dark-900 border border-dark-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-all duration-300 appearance-none cursor-pointer">
+                                <option value="" class="bg-dark-900">Select a Service</option>
+                                <option value="biodigester" class="bg-dark-900">Bio-Digester Septic Tank</option>
+                                <option value="biogas" class="bg-dark-900">Biogas System Solutions</option>
+                                <option value="waste" class="bg-dark-900">Waste Management Services</option>
+                                <option value="septic" class="bg-dark-900">Septic Tank Construction</option>
+                                <option value="drilling" class="bg-dark-900">Shallow Well Drilling</option>
+                                <option value="drainage" class="bg-dark-900">Drainage & Cleaning Services</option>
+                                <option value="environmental" class="bg-dark-900">Environmental Sanitation</option>
+                                <option value="construction" class="bg-dark-900">General Construction Services</option>
+                                <option value="other" class="bg-dark-900">Other / Consultation</option>
+                            </select>
+                        </div>
+
+                        <div class="mb-6">
+                            <label class="block text-dark-300 text-sm font-medium mb-2">Project Details</label>
+                            <textarea rows="4" class="input-focus w-full bg-dark-900 border border-dark-700 rounded-xl px-4 py-3 text-white text-sm focus:outline-none transition-all duration-300 resize-none" placeholder="Describe your project requirements, location, and timeline..."></textarea>
+                        </div>
+
+                        <button type="submit" class="btn-primary w-full bg-gradient-to-r from-primary-500 to-primary-600 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:shadow-lg hover:shadow-primary-500/30 transition-all duration-300 flex items-center justify-center gap-2">
+                            <i class="fas fa-paper-plane"></i>
+                            Submit Inquiry
+                        </button>
+
+                        <p class="text-dark-500 text-xs text-center mt-4">
+                            We respect your privacy. Your information will only be used to respond to your inquiry.
+                        </p>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Banner -->
+    <section class="relative py-20 bg-gradient-to-r from-primary-600 to-primary-800 overflow-hidden">
+        <div class="absolute inset-0 pointer-events-none">
+            <div class="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHZpZXdCb3g9IjAgMCA2MCA2MCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPjxnIGZpbGw9IiNmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSI+PHBhdGggZD0iTTM2IDM0djJoLTJ2LTJoMnptMC0xMHYySDI0di0yaDEyek0yNiA0NHYySDI0di0yaDJ6Ii8+PC9nPjwvZz48L3N2Zz4=')] opacity-30"></div>
+        </div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
+            <h2 class="fade-in font-serif text-3xl lg:text-5xl font-bold text-white mb-6">
+                Ready for Modern, Sustainable Sanitation?
+            </h2>
+            <p class="fade-in text-primary-100 text-lg max-w-2xl mx-auto mb-8">
+                Join satisfied clients across Juba who trust Advanced Sanitation Services LTD for reliable, eco-friendly sanitation and construction solutions.
+            </p>
+            <div class="fade-in flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="https://wa.me/211929970050" target="_blank" class="btn-primary inline-flex items-center justify-center gap-2 bg-[#25D366] text-white px-8 py-4 rounded-xl font-semibold text-lg hover:bg-[#128C7E] transition-all duration-300 hover:shadow-xl">
+                    <i class="fab fa-whatsapp text-xl"></i>
+                    WhatsApp Us Now
+                </a>
+                <a href="#contact" class="btn-primary inline-flex items-center justify-center gap-2 border-2 border-white/30 text-white px-8 py-4 rounded-xl font-semibold text-lg hover:border-white hover:bg-white/10 transition-all duration-300">
+                    <i class="fas fa-file-invoice"></i>
+                    Get Free Quote
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-950 border-t border-dark-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Company Info -->
+                <div>
+                    <a href="#home" class="flex items-center space-x-3 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-primary-500 to-accent-500 rounded-xl flex items-center justify-center">
+                            <i class="fas fa-leaf text-white"></i>
+                        </div>
+                        <div>
+                            <span class="text-white font-bold text-lg">ADVANCED</span>
+                            <span class="block text-primary-400 text-xs font-medium tracking-wider">SANITATION SERVICES LTD</span>
+                        </div>
+                    </a>
+                    <p class="text-dark-400 text-sm leading-relaxed mb-6">
+                        Professional sanitation and infrastructure company based in Juba, South Sudan. Delivering modern, environmentally friendly waste management and construction solutions.
+                    </p>
+                    <div class="flex items-center gap-3">
+                        <a href="https://wa.me/211929970050" target="_blank" class="w-9 h-9 rounded-lg bg-[#25D366]/10 flex items-center justify-center text-[#25D366] hover:bg-[#25D366] hover:text-white transition-all duration-300">
+                            <i class="fab fa-whatsapp text-sm"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-dark-800 flex items-center justify-center text-dark-400 hover:bg-primary-500 hover:text-white transition-all duration-300">
+                            <i class="fab fa-facebook-f text-sm"></i>
+                        </a>
+                        <a href="#" class="w-9 h-9 rounded-lg bg-dark-800 flex items-center justify-center text-dark-400 hover:bg-primary-500 hover:text-white transition-all duration-300">
+                            <i class="fab fa-linkedin-in text-sm"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-white font-semibold text-lg mb-6">Quick Links</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#home" class="text-dark-400 hover:text-primary-400 transition-colors text-sm">Home</a></li>
+                        <li><a href="#about" class="text-dark-400 hover:text-primary-400 transition-colors text-sm">About Us</a></li>
+                        <li><a href="#services" class="text-dark-400 hover:text-primary-400 transition-colors text-sm">Our Services</a></li>
+                        <li><a href="#projects" class="text-dark-400 hover:text-primary-400 transition-colors text-sm">Projects</a></li>
+                        <li><a href="#contact" class="text-dark-400 hover:text-primary-400 transition-colors text-sm">Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-white font-semibold text-lg mb-6">Our Services</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#services" class="text-dark-400 hover:text-primary-400 transition-colors text-sm">Bio-Digester Septic Tanks</a></li>
+                        <li><a href="#services" class="text-dark-400 hover:text-primary-400 transition-colors text-sm">Biogas System Solutions</a></li>
+                        <li><a href="#services" class="text-dark-400 hover:text-primary-400 transition-colors text-sm">Waste Management</a></li>
+                        <li><a href="#services" class="text-dark-400 hover:text-primary-400 transition-colors text-sm">Septic Tank Construction</a></li>
+                        <li><a href="#services" class="text-dark-400 hover:text-primary-400 transition-colors text-sm">Shallow Well Drilling</a></li>
+                        <li><a href="#services" class="text-dark-400 hover:text-primary-400 transition-colors text-sm">Drainage & Cleaning</a></li>
+                    </ul>
+                </div>
+
+                <!-- Contact -->
+                <div>
+                    <h4 class="text-white font-semibold text-lg mb-6">Contact Us</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt text-primary-400 mt-1"></i>
+                            <span class="text-dark-400 text-sm">Juba, South Sudan</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fab fa-whatsapp text-[#25D366]"></i>
+                            <a href="https://wa.me/211929970050" target="_blank" class="text-dark-400 hover:text-[#25D366] transition-colors text-sm font-medium">+211 929 970 050</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-primary-400"></i>
+                            <a href="mailto:info@sanitationadvanced.com" class="text-dark-400 hover:text-primary-400 transition-colors text-sm">info@sanitationadvanced.com</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-clock text-accent-400"></i>
+                            <span class="text-dark-400 text-sm"><span class="text-[#25D366]">●</span> Always Open</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="pt-8 border-t border-dark-800 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <p class="text-dark-500 text-sm">
+                    © 2026 Advanced Sanitation Services LTD. All rights reserved.
+                </p>
+                <p class="text-dark-500 text-sm text-center sm:text-right">
+                    Professional Sanitation • Bio-Digester Solutions • Construction Services
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/211929970050" target="_blank" class="whatsapp-float" title="Chat on WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-6 right-6 w-12 h-12 bg-primary-500 text-white rounded-xl shadow-lg shadow-primary-500/30 flex items-center justify-center opacity-0 invisible transition-all duration-300 hover:bg-primary-600 z-40">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+            }, 1000);
+        });
+
+        // Navbar Scroll Effect
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 50) {
+                navbar.classList.add('bg-dark-950/95', 'backdrop-blur-xl', 'shadow-lg', 'shadow-dark-950/20');
+                navbar.classList.remove('bg-transparent');
+            } else {
+                navbar.classList.remove('bg-dark-950/95', 'backdrop-blur-xl', 'shadow-lg', 'shadow-dark-950/20');
+                navbar.classList.add('bg-transparent');
+            }
+        });
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const mobileOverlay = document.getElementById('mobile-overlay');
+        const bar1 = document.getElementById('bar1');
+        const bar2 = document.getElementById('bar2');
+        const bar3 = document.getElementById('bar3');
+        let isMenuOpen = false;
+
+        function toggleMenu() {
+            isMenuOpen = !isMenuOpen;
+            mobileMenu.classList.toggle('open');
+            mobileOverlay.classList.toggle('hidden');
+            document.body.classList.toggle('overflow-hidden');
+            if (isMenuOpen) {
+                bar1.style.transform = 'rotate(45deg) translate(5px, 5px)';
+                bar2.style.opacity = '0';
+                bar3.style.transform = 'rotate(-45deg) translate(7px, -6px)';
+            } else {
+                bar1.style.transform = '';
+                bar2.style.opacity = '1';
+                bar3.style.transform = '';
+            }
+        }
+
+        mobileMenuBtn.addEventListener('click', toggleMenu);
+        mobileOverlay.addEventListener('click', toggleMenu);
+
+        // Mobile Services Dropdown
+        const mobileServicesToggle = document.getElementById('mobile-services-toggle');
+        const mobileServicesDropdown = document.getElementById('mobile-services-dropdown');
+        const mobileServicesIcon = document.getElementById('mobile-services-icon');
+        let isServicesOpen = false;
+
+        mobileServicesToggle.addEventListener('click', () => {
+            isServicesOpen = !isServicesOpen;
+            mobileServicesDropdown.classList.toggle('open');
+            mobileServicesIcon.style.transform = isServicesOpen ? 'rotate(180deg)' : '';
+        });
+
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => { if (isMenuOpen) toggleMenu(); });
+        });
+
+        // Scroll Animations
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right').forEach(el => observer.observe(el));
+
+        // Back to Top Button
+        const backToTop = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.pageYOffset > 500) {
+                backToTop.classList.remove('opacity-0', 'invisible');
+                backToTop.classList.add('opacity-100', 'visible');
+            } else {
+                backToTop.classList.remove('opacity-100', 'visible');
+                backToTop.classList.add('opacity-0', 'invisible');
+            }
+        });
+        backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+        // Contact Form
+        document.getElementById('contact-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const btn = e.target.querySelector('button[type="submit"]');
+            const originalText = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+            btn.disabled = true;
+            setTimeout(() => {
+                btn.innerHTML = '<i class="fas fa-check"></i> Message Sent!';
+                btn.classList.remove('from-primary-500', 'to-primary-600');
+                btn.classList.add('from-green-500', 'to-green-600');
+                setTimeout(() => {
+                    btn.innerHTML = originalText;
+                    btn.disabled = false;
+                    btn.classList.add('from-primary-500', 'to-primary-600');
+                    btn.classList.remove('from-green-500', 'to-green-600');
+                    e.target.reset();
+                }, 3000);
+            }, 2000);
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const offset = 80;
+                    const targetPosition = target.getBoundingClientRect().top + window.pageYOffset - offset;
+                    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
 </body>
 </html>
